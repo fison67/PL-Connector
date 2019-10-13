@@ -90,7 +90,7 @@ def initialize() {
         ]
     ]
     
-    def myhubAction = new physicalgraph.device.HubAction(options, null, [callback: null])
+    def myhubAction = new hubitat.device.HubAction(options, null, [callback: null])
     sendHubCommand(myhubAction)
     
     if(!existChild("pl-connector-news")){
