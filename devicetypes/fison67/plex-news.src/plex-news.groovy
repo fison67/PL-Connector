@@ -45,21 +45,6 @@ metadata {
 	simulator { }
     
     preferences { }
-
-	tiles(scale: 2) {
-		
-		multiAttributeTile(name:"playingTitle", type: "generic", width: 6, height: 4){
-			tileAttribute ("device.playingTitle", key: "PRIMARY_CONTROL") {
-				attributeState("status", label:'${currentValue}', backgroundColor: "#ffffff")
-			}
-            tileAttribute("device.lastCheckin", key: "SECONDARY_CONTROL") {
-    			attributeState("default", label:'Last Update: ${currentValue}',icon: "st.Health & Wellness.health9")
-            }
-		}
-        
-        main (["playingTitle"])
-        details(["playingTitle"])
-	}
 }
 
 // parse events into attributes
