@@ -46,38 +46,6 @@ metadata {
 	simulator { }
     
     preferences { }
-
-	tiles(scale: 2) {
-		multiAttributeTile(name:"switch", type: "generic", width: 6, height: 4){
-			tileAttribute ("device.switch", key: "PRIMARY_CONTROL") {
-                attributeState "on", label:'${name}', backgroundColor:"#00a0dc", icon: "st.Electronics.electronics3"
-                attributeState "off", label:'${name}', backgroundColor:"#ffffff", icon: "st.Electronics.electronics3"
-            }
-            
-            tileAttribute("device.lastCheckin", key: "SECONDARY_CONTROL") {
-    			attributeState("default", label:'Updated: ${currentValue}',icon: "st.Health & Wellness.health9")
-            }
-		}
-        
-        valueTile("name", "", inactiveLabel: false, width: 2, height: 1) {
-            state "default", label:"Name" 
-        }
-        
-        valueTile("deviceName", "device.deviceName", width: 4, height: 1) {
-            state "val", label:'${currentValue}', defaultState: true
-        }
-        
-        valueTile("playingType", "device.playingType", width: 2, height: 1) {
-            state "val", label:'${currentValue}', defaultState: true
-        }
-        
-        valueTile("playingTitle", "device.playingTitle", width: 4, height: 1) {
-            state "val", label:'${currentValue}', defaultState: true
-        }
-        
-        main (["switch"])
-        details(["switch", "name", "deviceName", "playingType", "playingTitle"])
-	}
 }
 
 // parse events into attributes
