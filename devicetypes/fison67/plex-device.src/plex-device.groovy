@@ -1,5 +1,5 @@
 /**
- *  Plex Device (v.0.0.1)
+ *  Plex Device (v.0.0.2)
  *
  * MIT License
  *
@@ -92,7 +92,15 @@ def updateData(data){
     	sendEvent(name: "playerStatus", value: data.subData.status)
     }
     if(data.subData.title){
-    	sendEvent(name: "playingTitle", value: data.subData.title)
+    	def title = data.subData.title
+        if(data.subData.grandTitle){
+        	title = data.subData.grandTitle + ", " + data.subData.parentTitle + " E" + data.subData.index + " [" + title + "]"
+        }else{
+            if(data.subData.parentTitle){
+                title = data.subData.parentTitle + "(" + title + ")"
+            }
+        }
+    	sendEvent(name: "playingTitle", value: title)
     }
     if(data.subData.name){
     	sendEvent(name: "playingType", value: data.subData.name)
